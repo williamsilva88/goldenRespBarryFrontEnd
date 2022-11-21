@@ -1,0 +1,12 @@
+<app-container-page>
+  <div class="container">
+    <div class="card-responsive">
+      <div class="card-box">
+        <div class="grid-title">
+          <label> List Movies </label>
+        </div>
+        <app-grid-default [data]="data" [columns]="columns" (filterSelect)="filterSelectAction($event)"></app-grid-default>
+      </div>
+    </div>
+  </div>
+</app-container-page>

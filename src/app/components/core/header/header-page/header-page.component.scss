@@ -1,0 +1,11 @@
+.header-main {
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+  font-size: 18px;
+  background-color: rgb(52,58,64);
+
+  & label{
+    color: #FFF;
+  }
+}

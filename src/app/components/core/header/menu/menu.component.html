@@ -1,0 +1,17 @@
+<div [ngClass]="getClassesContent()">
+  <div class="menu-bar">
+    <div
+      [ngClass]="getClassesItem(l)"
+      *ngFor="let l of menuList; let i = index"
+      (click)="openPage(l)"
+    >
+      <span class="material-symbols-outlined">  {{ l?.icon }} </span>
+      <span [ngClass]="getClassesItemName()">
+        {{ l?.name }}
+      </span>
+    </div>
+  </div>
+  <div class="menu-push">
+    <i [ngClass]="getClassesBackIcon()" (click)="alterMenuOpen()"> arrow_back </i>
+  </div>
+</div>

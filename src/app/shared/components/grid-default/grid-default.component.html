@@ -1,0 +1,82 @@
+<div class="grid-container">
+  <div class="grid-header-content" *ngIf="title || subtitle">
+    <div class="grid-title" *ngIf="title">
+      <label> {{ title }} </label>
+    </div>
+    <div class="grid-subtitle" *ngIf="subtitle">
+      <label>{{ subtitle }}</label>
+    </div>
+  </div>
+  <div class="grid-content">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container
+        [matColumnDef]="c.field"
+        *ngFor="let c of columnsSource; let i = index"
+      >
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          class="grid-header"
+        >
+          <div>
+            <label [ngStyle]="getHeaderStyle(c)">{{ c?.name }}</label>
+          </div>
+          <div *ngIf="getFilter(c)">
+            <input
+              class="grid-search"
+              *ngIf="c?.filterType === 'number' || c?.filterType === 'text'"
+              (change)="search($event, c)"
+              [(ngModel)]="c.filterValue"
+              (keyup)="validValue($event, c)"
+            />
+            <button
+              class="grid-search-buttom"
+              *ngIf="c?.filterSwitchList && c?.filterType === 'switch'"
+              (click)="filterSwitch(c)"
+            >
+              {{
+                c?.filterSwitchSelectedLabel
+                  ? c.filterSwitchSelectedLabel
+                  : c?.filterSwitchPlaceholder
+              }}
+            </button>
+            <button
+              class="grid-search-buttom"
+              *ngIf="c?.filterComboList && c?.filterType === 'combo'"
+              (click)="filterComboShow(c)"
+            >
+              {{
+                c?.filterComboSelected
+                  ? c.filterComboSelected
+                  : c?.filterComboPlaceholder
+              }}
+            </button>
+            <div
+              class="filter-box-item"
+              *ngIf="
+                c?.filterComboList &&
+                c?.filterType === 'combo' &&
+                c?.filterComboShow
+              "
+            >
+              <div
+                *ngFor="let filterItem of c.filterComboList; let i2 = index"
+                class="filter-item"
+                (click)="filterComboSelect(c, filterItem)"
+              >
+                <label>{{ filterItem?.label }}</label>
+              </div>
+            </div>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element" class="grid-item">
+          {{ element[c.field] }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

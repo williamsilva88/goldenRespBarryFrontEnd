@@ -1,0 +1,110 @@
+<app-container-page>
+  <div class="container">
+    <div class="card-responsive">
+      <div class="card-box">
+        <div class="grid-title">
+          <label>
+            {{ getDashboardtitle(dashboard, "listYearsWithMultipleWinners") }}
+          </label>
+        </div>
+        <app-grid-default
+          [data]="getDashboardData(dashboard, 'listYearsWithMultipleWinners')"
+          [columns]="
+            getDashboardColumns(dashboard, 'listYearsWithMultipleWinners')
+          "
+        ></app-grid-default>
+      </div>
+    </div>
+    <div class="card-responsive">
+      <div class="card-box">
+        <div class="grid-title">
+          <label>
+            {{ getDashboardtitle(dashboard, "topThreeStudiosWithWinners") }}
+          </label>
+        </div>
+        <app-grid-default
+          [data]="getDashboardData(dashboard, 'topThreeStudiosWithWinners')"
+          [columns]="
+            getDashboardColumns(dashboard, 'topThreeStudiosWithWinners')
+          "
+        ></app-grid-default>
+      </div>
+    </div>
+    <div class="card-responsive">
+      <div class="card-box">
+        <div class="grid-title">
+          <label>
+            Producers with longest and shortest interval between wins
+          </label>
+        </div>
+        <div class="grid-subtitle">
+          <label>
+            {{
+              getDashboardtitle(
+                dashboard,
+                "producersWithLongestAndShortestIntervalBetweenWinsMaximun"
+              )
+            }}
+          </label>
+        </div>
+        <app-grid-default
+          [data]="
+            getDashboardData(
+              dashboard,
+              'producersWithLongestAndShortestIntervalBetweenWinsMaximun'
+            )
+          "
+          [columns]="
+            getDashboardColumns(
+              dashboard,
+              'producersWithLongestAndShortestIntervalBetweenWinsMaximun'
+            )
+          "
+        ></app-grid-default>
+        <div class="grid-subtitle">
+          <label>
+            {{
+              getDashboardtitle(
+                dashboard,
+                "producersWithLongestAndShortestIntervalBetweenWinsMinimum"
+              )
+            }}
+          </label>
+        </div>
+        <app-grid-default
+          [data]="
+            getDashboardData(
+              dashboard,
+              'producersWithLongestAndShortestIntervalBetweenWinsMinimum'
+            )
+          "
+          [columns]="
+            getDashboardColumns(
+              dashboard,
+              'producersWithLongestAndShortestIntervalBetweenWinsMinimum'
+            )
+          "
+        ></app-grid-default>
+      </div>
+    </div>
+    <div class="card-responsive">
+      <div class="card-box">
+        <div class="grid-title">
+          <label>
+            {{ getDashboardtitle(dashboard, "listMovieWinnersByYears") }}
+          </label>
+          <div>
+            <input class="dashboard-search" (keyup)="validInput($event)" [(ngModel)]="yearFilter" />
+            <button class="dashboard-search-icon" (click)="getListMovieWinnersByYears()">
+              <span class="material-symbols-outlined"> search </span>
+            </button>
+          </div>
+        </div>
+        <app-grid-default
+          [data]="getDashboardData(dashboard, 'listMovieWinnersByYears')"
+          [columns]="getDashboardColumns(dashboard, 'listMovieWinnersByYears')"
+        ></app-grid-default>
+      </div>
+    </div>
+  </div>
+</app-container-page>
