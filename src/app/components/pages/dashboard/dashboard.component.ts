@@ -256,5 +256,4 @@ export class DashboardComponent implements OnInit {
     this.yearFilter = numberMaskOntime(event);
   }
 
-  ngOnDestroy() {}
 }

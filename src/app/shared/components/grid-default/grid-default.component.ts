@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { numberMaskOntime } from '../../utils';
 
@@ -14,7 +20,7 @@ export interface PeriodicElement {
   templateUrl: './grid-default.component.html',
   styleUrls: ['./grid-default.component.scss'],
 })
-export class GridDefaultComponent {
+export class GridDefaultComponent implements OnChanges {
   @Input()
   data?: any[] = [];
 
@@ -34,10 +40,6 @@ export class GridDefaultComponent {
   dataSource = new MatTableDataSource();
   columnsSource: any[] = [];
   filterSelectList: any = {};
-
-  constructor() {}
-
-  ngOnInit() {}
 
   ngOnChanges() {
     this.columnsSource = this.columns ? this.columns : [];

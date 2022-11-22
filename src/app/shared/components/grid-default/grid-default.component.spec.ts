@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatTableModule } from '@angular/material/table';
 
 import { GridDefaultComponent } from './grid-default.component';
 
@@ -8,9 +9,9 @@ describe('GridDefaultComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GridDefaultComponent ]
-    })
-    .compileComponents();
+      declarations: [GridDefaultComponent],
+      imports: [MatTableModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(GridDefaultComponent);
     component = fixture.componentInstance;

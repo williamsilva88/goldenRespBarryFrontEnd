@@ -1,27 +1,28 @@
 # Projeto de teste Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+## Preparação de ambiente de desenvolvimento
 
-## Development server
+### Instalação do node
+- 1º opção: Baixar o node e realizar a instalação da versão corrente
+- 2º opção: Baixar o nvm (Gerenciador de node) em "https://github.com/coreybutler/nvm-windows/releases", depois executar no pront de comando `nvm install 14.17.0`. Assim a versão do node será a homologada em desenvolvimento.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Instalação do Visual Studio Code
+- Link: https://code.visualstudio.com/download
+- Para trabalhar no código basta abrir a pasta do projeto no Visual Studio Code
 
-## Code scaffolding
+## Executando projeto
+- Baixar projeto em uma pasta
+- Abrir pronpt de comando e entrar a pasta do projeto
+- Executar comando `npx ng serve` para executar projeto subindo na porta 4200 ou `npx ng serve --port 4201` para alterar a porta
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Executando testes automatizados
+- Executar comando `npx ng test`
 
-## Build
+### Executando cobertura de testes automatizados
+- Executar comando `npx ng test --no-watch --code-coverage`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Executando padronização de código
+- Executar comando `npx ng lint`
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Build 
+- Executar comando `ng build`
