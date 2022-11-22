@@ -11,11 +11,18 @@ export class ListComponent implements OnInit {
   public data: any[] = [];
   public columns: any[] = [];
 
+  pagelength = 200;
+  pageTotal = 0;
+  pageSize = 10;
+  pageIndex = 0;
+  yearFilter: number | null = null;
+  winnerFilter: boolean | null = null;
+
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
     this.initData();
-    this.getDataFull(0, 15, 0);
+    this.getDataFull();
   }
 
   initData() {
@@ -24,26 +31,46 @@ export class ListComponent implements OnInit {
       {
         name: 'ID',
         field: 'id',
-        headerStyle: {},
+        headerStyle: {
+          textAlign: 'center',
+          width: '100%',
+          display: 'inline-grid',
+          fontSize: '14px',
+        },
         filter: false,
       },
       {
         name: 'Year',
         field: 'year',
-        headerStyle: {},
+        headerStyle: {
+          textAlign: 'center',
+          width: '100%',
+          display: 'inline-grid',
+          fontSize: '14px',
+        },
         filter: true,
         filterType: 'number',
       },
       {
         name: 'Title',
         field: 'title',
-        headerStyle: {},
+        headerStyle: {
+          textAlign: 'center',
+          width: '100%',
+          display: 'inline-grid',
+          fontSize: '14px',
+        },
         filter: false,
       },
       {
         name: 'Winner?',
         field: 'winner',
-        headerStyle: {},
+        headerStyle: {
+          textAlign: 'center',
+          width: '100%',
+          display: 'inline-grid',
+          fontSize: '14px',
+        },
         filter: true,
         filterType: 'switch',
         filterSwitchPlaceholder: 'Yes/No',
@@ -65,17 +92,25 @@ export class ListComponent implements OnInit {
     ];
   }
 
-  getDataFull(
-    page: number,
-    size: number,
-    year: number,
-    winner: boolean | null = null
-  ) {
+  getDataFull() {
     this.httpService
-      .searchMovies(new MoviesSearch(page, size, winner, year, null))
+      .searchMovies(
+        new MoviesSearch(
+          this.pageIndex,
+          this.pageSize,
+          this.winnerFilter,
+          this.yearFilter,
+          null
+        )
+      )
       .subscribe((obj: any) => {
         if (obj?.content?.length > 0) {
+          this.pagelength = obj.totalElements;
+          this.pageTotal = obj.totalPages;
           this.data = obj.content;
+          this.data.forEach((value) => {
+            value.winner = value.winner.toString() === 'true' ? 'Yes' : 'No';
+          });
         } else {
           this.data = [];
         }
@@ -83,7 +118,6 @@ export class ListComponent implements OnInit {
   }
 
   filterSelectAction(data: any) {
-    console.log('data:', data);
     let year = 0;
     let winner = null;
     if (data?.year) {
@@ -102,6 +136,15 @@ export class ListComponent implements OnInit {
           break;
       }
     }
-    this.getDataFull(0, 15, year, winner);
+    this.yearFilter = year;
+    this.winnerFilter = winner;
+    this.pageIndex = 0;
+    this.getDataFull();
+  }
+
+  pageChange(data: any) {
+    this.pageIndex = data?.pageIndex ? data?.pageIndex : 0;
+    this.pageSize = data?.pageSize ? data?.pageSize : 10;
+    this.getDataFull();
   }
 }

@@ -6,6 +6,11 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'pages/dashboard',
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
     data:{pageName:'Dashboard'},
@@ -20,7 +25,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'dashboard',
-  },
+  }
 ];
 
 @NgModule({

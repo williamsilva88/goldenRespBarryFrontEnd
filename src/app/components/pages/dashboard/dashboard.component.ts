@@ -136,10 +136,12 @@ export class DashboardComponent implements OnInit {
         {
           name: 'Year',
           field: 'year',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'Win Count',
           field: 'winnerCount',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
       ],
     };
@@ -151,10 +153,12 @@ export class DashboardComponent implements OnInit {
         {
           name: 'Name',
           field: 'name',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'Win Count',
           field: 'winCount',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
       ],
     };
@@ -166,18 +170,22 @@ export class DashboardComponent implements OnInit {
         {
           name: 'Producer',
           field: 'producer',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'interval',
           field: 'interval',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'Previous Year',
           field: 'previousWin',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'Folliwing Year',
           field: 'followingWin',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
       ],
     };
@@ -189,18 +197,22 @@ export class DashboardComponent implements OnInit {
         {
           name: 'Producer',
           field: 'producer',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'interval',
           field: 'interval',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'Previous Year',
           field: 'previousWin',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'Folliwing Year',
           field: 'followingWin',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
       ],
     };
@@ -212,14 +224,17 @@ export class DashboardComponent implements OnInit {
         {
           name: 'Id',
           field: 'id',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'Year',
           field: 'year',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
         {
           name: 'Title',
           field: 'title',
+          headerStyle: {textAlign: 'left',width: '100%',display: 'inline-grid',fontSize: '14px'},
         },
       ],
     };
