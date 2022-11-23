@@ -42,6 +42,10 @@ export class GridDefaultComponent implements OnChanges {
   filterSelectList: any = {};
 
   ngOnChanges() {
+    this.initValues();
+  }
+
+  initValues(){
     this.columnsSource = this.columns ? this.columns : [];
     this.displayedColumns = [];
     this.columnsSource.forEach((value) => {
@@ -73,7 +77,7 @@ export class GridDefaultComponent implements OnChanges {
     } else {
       delete this.filterSelectList[reg.field];
     }
-
+    console.log("filterSelectList:",this.filterSelectList);
     this.filterSelect.emit(this.filterSelectList);
   }
 
@@ -103,7 +107,7 @@ export class GridDefaultComponent implements OnChanges {
       delete this.filterSelectList[reg.field];
       delete reg.filterSwitchSelectedLabel;
     }
-
+    console.log("filterSelectList:",this.filterSelectList);
     this.filterSelect.emit(this.filterSelectList);
   }
 
