@@ -77,7 +77,6 @@ export class GridDefaultComponent implements OnChanges {
     } else {
       delete this.filterSelectList[reg.field];
     }
-    console.log("filterSelectList:",this.filterSelectList);
     this.filterSelect.emit(this.filterSelectList);
   }
 
@@ -107,7 +106,6 @@ export class GridDefaultComponent implements OnChanges {
       delete this.filterSelectList[reg.field];
       delete reg.filterSwitchSelectedLabel;
     }
-    console.log("filterSelectList:",this.filterSelectList);
     this.filterSelect.emit(this.filterSelectList);
   }
 

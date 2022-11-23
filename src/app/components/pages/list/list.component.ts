@@ -121,7 +121,7 @@ export class ListComponent implements OnInit {
     let year = 0;
     let winner = null;
     if (data?.year) {
-      year = data.year.value;
+      year = Number(data.year.value);
     }
     if (data?.winner) {
       switch (data?.winner?.value) {
